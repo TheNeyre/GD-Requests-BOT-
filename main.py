@@ -7,6 +7,7 @@ from config import Config
 req_channel_id = Config.req_channel_id
 req_result_channel_id = Config.req_result_channel_id
 token = Config.token
+REQ_Moderator_ID = Config.REQ_Moderator_ID
 
 class Bot(commands.Bot):
     def __init__(self):
@@ -52,7 +53,7 @@ class ReqQuestion(discord.ui.Modal, title='Анкета для отправки 
     async def on_submit(self, interaction: discord.Interaction):
         channel = bot.get_channel(req_result_channel_id)
         await channel.send(f'''
-# REQ SEND <@{1113757239224827924}>
+# REQ SEND <@{REQ_Moderator_ID}>
 Member: <@{interaction.user.id}>
 `info:`
 - GD NICK: {self.GDNickName}
